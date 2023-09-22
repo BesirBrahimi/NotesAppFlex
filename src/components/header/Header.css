@@ -1,0 +1,21 @@
+.header {
+    height: 50px;
+    width: 100%;
+    color: white;
+    background-color: #37455c;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+.title{
+    color: white;
+    font-size: 20px;
+}
+.close{
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+}
