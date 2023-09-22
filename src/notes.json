@@ -1,0 +1,21 @@
+{
+    "categories": [
+      { "id": 1, "name": "Work" },
+      { "id": 2, "name": "Personal" }
+    ],
+    "notes": [
+      {
+        "id": 1,
+        "title": "Work Task",
+        "content": "Finish the project by Friday",
+        "categoryId": 1
+      },
+      {
+        "id": 2,
+        "title": "Grocery List",
+        "content": "Milk, Bread, Eggs",
+        "categoryId": 2
+      }
+    ]
+  }
+  

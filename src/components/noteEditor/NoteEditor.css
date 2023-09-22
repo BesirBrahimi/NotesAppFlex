@@ -1,0 +1,73 @@
+.note-editor{
+    height: 90vh;
+    overflow-y: auto;
+    flex: 2;
+    border: 1px solid #ccc;
+    margin: auto 5px;
+    border-radius: 5px;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+.note-edit{
+    display: flex;
+    flex-direction: column;
+    height: 73vh;
+}
+.note-actions{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 3px;
+}
+.title-edit{
+    border: none;
+    padding: 7px 3px;
+    margin: 7px 3px;
+    border-bottom: 1px solid black;
+}
+.textarea{
+    border: none;
+    height: 40vh;
+    width: 300px;
+    padding: 20px 5px;
+    margin-top: 10px;
+}
+.button-save{
+    background-color:#08a10b;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    width: 150px;
+    cursor: pointer;
+}
+.btn-save{
+    background-color:#08a10b;
+    color: white;
+    cursor: pointer;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+}
+.button-del{
+    background-color: red;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    width: 150px;
+    cursor: pointer;
+}
+.btn-del{
+    background-color: red;
+    color: white;
+    width: 80%;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    padding: 8px 12px;
+}
+.icon{
+    color: white;
+    font-size: 22px;
+}
