@@ -126,3 +126,4 @@ const NoteEditor: React.FC = () => {
 };
 
 export default NoteEditor;
+  

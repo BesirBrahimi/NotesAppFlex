@@ -21,17 +21,29 @@
 }
 
 .folder-item {
-  cursor: pointer;
   padding: 10px;
   margin-bottom: 5px;
   border-radius: 5px;
 }
 
 .folder-item.selected {
+  cursor: pointer;
   background-color: #3498db;
   color: #fff;
 }
-
+.folder-item.selected:hover {
+  background-color: #3498db;
+  color: #fff;
+}
+.delete-add-folder{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.delete-folder{
+  margin-right: 10px;
+  color: red;
+}
 .add-folder {
   display: flex;
   margin-top: 20px;

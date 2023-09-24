@@ -1,20 +1,40 @@
-// Sidebar.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useGlobalContext } from "../../context";
 import "./Sidebar.css";
 import { FaFolder } from "react-icons/fa";
 import { BiSolidDownArrow, BiSolidRightArrow } from "react-icons/bi";
 import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
+import { AiFillDelete } from "react-icons/ai";
 
 const Sidebar: React.FC = () => {
-  const { categories, selectedFolder, setSelectedFolder, addCategory } =
-    useGlobalContext();
+  const {
+    categories,
+    selectedFolder,
+    setSelectedFolder,
+    addCategory,
+    deleteCategory
+  } = useGlobalContext();
   const [newFolderName, setNewFolderName] = useState("");
   const [showInput, setShowInput] = useState(false);
+  const [folderList, setFolderList] = useState(categories);
+
+  useEffect(() => {
+    setFolderList(categories);
+  }, [categories]);
 
   const handleFolderClick = (folderId: number) => {
     setSelectedFolder(folderId.toString());
+  };
+
+  const handleDeleteFolder = (categoryId: number) => {
+    console.log("Deleting folder with ID:", categoryId);
+    deleteCategory(categoryId);
+
+    setFolderList((prevList) => prevList.filter((folder) => folder.id !== categoryId));
+    if (selectedFolder === categoryId.toString()) {
+      setSelectedFolder("");
+    }
   };
 
   const handleAddFolder = () => {
@@ -24,12 +44,14 @@ const Sidebar: React.FC = () => {
     }
     setShowInput((prev) => !prev);
   };
+
   const handleAddFolder1 = () => {
     if (newFolderName.trim() !== "") {
       addCategory({ id: Date.now(), name: newFolderName });
       setNewFolderName("");
     }
   };
+
   const closeSearch = () => {
     setShowInput(false);
   };
@@ -57,7 +79,7 @@ const Sidebar: React.FC = () => {
         )}
       </div>
       <div className="folder-list">
-        {categories.map((category) => (
+        {folderList.map((category) => (
           <div
             key={category.id}
             className={`folder-item ${
@@ -67,14 +89,24 @@ const Sidebar: React.FC = () => {
           >
             <div className="folder-name">
               <div className="icon-name">
-                <FaFolder style={{ marginRight: "5px" , fontSize:"22px"}} /> Category:{" "}
-                {category.name}
+                <FaFolder style={{ marginRight: "5px", fontSize: "22px" }} />{" "}
+                Category: {category.name}
               </div>
-              {category.id.toString() === selectedFolder ? (
-                <BiSolidRightArrow className="icons" />
-              ) : (
-                <BiSolidDownArrow className="icons" />
-              )}
+              <div className="delete-add-folder">
+                {category.id.toString() === selectedFolder ? (
+                  <>
+                    <AiFillDelete
+                      className="delete-folder"
+                      onClick={() => handleDeleteFolder(category.id)}
+                    />
+                    <BiSolidRightArrow className="icons" />
+                  </>
+                ) : (
+                  <>
+                    <BiSolidDownArrow className="icons" />
+                  </>
+                )}
+              </div>
             </div>
           </div>
         ))}

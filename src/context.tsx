@@ -7,6 +7,7 @@ import {
   updateNote,
   deleteNote,
   addCategory,
+  deleteCategory
 } from "./notes";
 
 interface NoteContextType {
@@ -22,6 +23,7 @@ interface NoteContextType {
   addCategory: (category: Category) => void;
   selectedNote: Note | null;
   setSelectedNote: (selectedNote: Note | null) => void;
+  deleteCategory:(categoryId: number) => void;
 }
 
 const AppContext = createContext<NoteContextType | undefined>(undefined);
@@ -35,6 +37,9 @@ export const MyContextProvider: React.FC<{ children: ReactNode }> = ({
 
   const notes = getNotes();
   const categories = getCategories();
+
+  console.log("Categories from context:", categories);
+
 
   const addNewNote = (note: Note) => {
     addNote(note);
@@ -67,6 +72,7 @@ export const MyContextProvider: React.FC<{ children: ReactNode }> = ({
         addCategory: addNewCategory,
         selectedNote,
         setSelectedNote,
+        deleteCategory
       }}
     >
       {children}
