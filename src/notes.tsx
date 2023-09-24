@@ -58,14 +58,8 @@ const deleteCategory = (categoryId: number): void => {
   const index = loadedData.categories.findIndex((category: Category) => category.id === categoryId);
 
   if (index !== -1) {
-    // Delete the category from the loadedData
     loadedData.categories.splice(index, 1);
-    // Save the updated data to local storage
     saveDataToLocalStorage(loadedData);
-    console.log("Category deleted:", categoryId);
-
-    // Optionally, you can log the updated data to ensure it's correct
-    console.log("Updated data:", loadedData);
   }
 };
 

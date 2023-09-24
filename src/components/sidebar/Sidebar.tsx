@@ -28,7 +28,6 @@ const Sidebar: React.FC = () => {
   };
 
   const handleDeleteFolder = (categoryId: number) => {
-    console.log("Deleting folder with ID:", categoryId);
     deleteCategory(categoryId);
 
     setFolderList((prevList) => prevList.filter((folder) => folder.id !== categoryId));

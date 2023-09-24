@@ -38,8 +38,6 @@ export const MyContextProvider: React.FC<{ children: ReactNode }> = ({
   const notes = getNotes();
   const categories = getCategories();
 
-  console.log("Categories from context:", categories);
-
 
   const addNewNote = (note: Note) => {
     addNote(note);
