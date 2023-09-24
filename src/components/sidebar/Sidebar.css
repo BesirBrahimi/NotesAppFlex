@@ -72,3 +72,10 @@
 .icons{
     font-size: 15px;
 }
+
+.delete-folder{
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+    
