@@ -21,7 +21,7 @@ const Sidebar: React.FC = () => {
 
   useEffect(() => {
     setFolderList(categories);
-  }, [categories]);
+  }, [categories, addCategory]);
 
   const handleFolderClick = (folderId: number) => {
     setSelectedFolder(folderId.toString());
@@ -36,15 +36,11 @@ const Sidebar: React.FC = () => {
     }
   };
 
-  const handleAddFolder = () => {
-    if (newFolderName.trim() !== "") {
-      addCategory({ id: Date.now(), name: newFolderName });
-      setNewFolderName("");
-    }
+  const toggleInput = () => {
     setShowInput((prev) => !prev);
   };
 
-  const handleAddFolder1 = () => {
+  const handleAddFolder = () => {
     if (newFolderName.trim() !== "") {
       addCategory({ id: Date.now(), name: newFolderName });
       setNewFolderName("");
@@ -58,7 +54,7 @@ const Sidebar: React.FC = () => {
   return (
     <div className="sidebar">
       <div className="add-folder">
-        <div onClick={handleAddFolder} className="button-icon">
+        <div onClick={toggleInput} className="button-icon">
           <button>Create Category</button>
           <AiOutlinePlus className="plus-icon" />
         </div>
@@ -71,7 +67,7 @@ const Sidebar: React.FC = () => {
               onChange={(e) => setNewFolderName(e.target.value)}
             />
             <div>
-              <MdDone onClick={handleAddFolder1} className="icon-done" />
+              <MdDone onClick={handleAddFolder} className="icon-done" />
               <AiOutlineClose onClick={closeSearch} className="icon-exit" />
             </div>
           </div>
