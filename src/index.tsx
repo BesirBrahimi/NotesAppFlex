@@ -7,9 +7,9 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <MyContextProvider>
      <App />
     </MyContextProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

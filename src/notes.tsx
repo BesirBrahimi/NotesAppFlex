@@ -30,9 +30,15 @@ const addNote = (note: Note): void => {
   saveDataToLocalStorage(loadedData);
 };
 
+// const addCategory = (category: Category): void => {
+//   category.id = Date.now();
+//   loadedData.categories.push(category);
+//   saveDataToLocalStorage(loadedData); 
+// };
+
 const addCategory = (category: Category): void => {
   category.id = Date.now();
-  loadedData.categories.push(category);
+  loadedData.categories.unshift(category); // Add the new category to the beginning of the array
   saveDataToLocalStorage(loadedData); 
 };
 
