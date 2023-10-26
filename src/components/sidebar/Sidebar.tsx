@@ -14,7 +14,8 @@ const Sidebar: React.FC = () => {
     selectedFolder,
     setSelectedFolder,
     addCategory,
-    deleteCategory
+    deleteCategory,
+    setTransNote,
   } = useGlobalContext();
   const [newFolderName, setNewFolderName] = useState("");
   const [showInput, setShowInput] = useState(false);
@@ -38,6 +39,8 @@ const Sidebar: React.FC = () => {
 
   const handleFolderClick = (folderId: number) => {
     setSelectedFolder(folderId.toString());
+    setTransNote(false)
+
   };
 
   const handleDeleteFolder = (categoryId: number) => {
