@@ -19,6 +19,11 @@ const NoteList: React.FC = () => {
     setTransNote(true);
   };
 
+  const createNote = () => {
+    setTransNote(true) 
+    setSelectedNote(null)
+  }
+
   return (
     <div className="notes-list">
       <div className="notes-header">
@@ -26,7 +31,7 @@ const NoteList: React.FC = () => {
           <button
             className="Create-note"
             disabled={!selectedFolder}
-            onClick={() => setTransNote(true)}
+            onClick={createNote}
           >
             Create Note
           </button>
